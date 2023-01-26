@@ -6,3 +6,12 @@ For the "Autocomplete with Tries" problem, I chose to utilize Python's `defaultd
 
 ## Runtime Analysis
 The runtime and space complexity of the `TrieNode`'s `suffixes` method is `O(n)` where `n` represents the total number of nodes defined under the sub-tree rooted by the prefix `TrieNode`. Its runtime scales linearly with the total number nodes under the chosen prefix as we visit each node to build our list of suffixes. Its memory utilization scales linearly with the maximum depth of the sub-tree rooted by the prefix, it is said to scale linearly with the number of nodes in the worst case given a subtree where every node has a single child.
+
+### Additional Notes after 1st Review
+As mentioned at the head of this document, I believe this prompt was lacking detail on what to focus the explanation on. The reviewer insisted including runtime analysis for every component, that follows below:
+
+1. `TrieNode` constructor - Runtime and space complexity of `O(1)`, the constructor for the `TrieNode` accepts no input.
+2. `TrieNode` `suffixes` method - As mentioned in the Runtime Analysis section, has a runtime and space complexity of `O(n)` where `n` represents the total number of nodes defined under the sub-tree rooted by the prefix, see Runtime Analysis for more detail
+3. `Trie` constructor - Runtime and space complexity of `O(1)`, the constructor for the `Trie` accepts no input.
+4. `Trie` `insert` method - Runtime and space complexity of `O(n)` where `n` represents the character length of the word passed as input. In the worst case, new nodes are created per letter not already present in the Trie via a common prefix
+5. `Trie` `find` method - Runtime complexity of `O(n)` where `n` represents the character length of the input prefix. It has a space complexity of `O(1)` as memory allocation during runtime does not scale with the input.
